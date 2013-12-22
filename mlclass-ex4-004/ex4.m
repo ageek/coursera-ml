@@ -119,6 +119,11 @@ fprintf('\n\n');
 fprintf('Program paused. Press enter to continue.\n');
 pause;
 
+%check accuracy with already provided Theat1 and Theta2, 
+% gives around 97% accuracy
+fprintf('\nTraining Set Accuracy: %f\n', mean(double(pred == y)) * 100);
+fprintf('Program paused. Press enter to continue.\n');
+pause;
 
 %% ================ Part 6: Initializing Pameters ================
 %  In this part of the exercise, you will be starting to implment a two
