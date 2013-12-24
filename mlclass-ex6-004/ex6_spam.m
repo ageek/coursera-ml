@@ -70,8 +70,17 @@ load('spamTrain.mat');
 fprintf('\nTraining Linear SVM (Spam Classification)\n')
 fprintf('(this may take 1 to 2 minutes) ...\n')
 
+% for linear kernel
 C = 0.1;
 model = svmTrain(X, y, C, @linearKernel);
+
+% Also try RBF kernel and see how it works
+% Generally for text documents, RBF kernel doesn't give good results..test it out
+% pick C & gamma using cross validation set
+%C = 0.3;
+%sigma=100;
+%model= svmTrain(X, y, C, @(x1, x2) gaussianKernel(x1, x2, sigma)); 
+
 
 p = svmPredict(model, X);
 
